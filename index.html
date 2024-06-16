@@ -1,0 +1,201 @@
+<!-- 
+  Author : Zachariah Nkosi
+  Date   : June 14 2024
+
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>ABOUT ME</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="logo.png">
+</head>
+<body id="body">
+  <div class="container">
+    <nav class="main-nav" id="mainNav">
+      <div class="nav-logo">
+        <!-- <h2><a href="#">< YOUR LOGO ></a></h2> -->
+        <div class="img-logo">
+          <a href="index.html">
+            <img src="img/logo.png" alt="Logo">
+          </a>
+         </div>
+         <img src="img/svg/menu.svg" id="mainMenu" alt="Menu">
+      </div>
+      <ul class="nav-links" id="mainLink">
+        <li class="active"><a href="index.html">About</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="Prices.html">Prices</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <header class="main-banner-about">
+       <div class="overl"></div>
+       <div class="title">
+         <h1>SiyaPexels</h1><hr class="hr">
+         <h2>Photographer</h2>
+       </div>
+    </header>
+    <!-- About  Link-->
+    <div id="about"></div><br>
+    <section class="main-section-about">
+      <h5 class="title-txt">About Me<hr></h5>
+      <div class="about-me">
+         <div class="about">
+            <h1><em>I love photography</em></h1>
+            <p>Hi there! I'm Siya Dlhamini, I'm a passionate photographer, in a mission of turning moments into memories that sparkles with joy. I thrive on capturing smiles and creating images that resonate long after the shutter clicks. Let's preserve your precious moments together, so they can be cherished forever!</p>
+         </div>
+
+         <div class="info">
+            <div class="about-info">
+              <div class="my-image"></div>
+              <img src="img/home-bg-2.jpg" alt="Me" class="me">
+            </div>
+            <h1>Siya Pexels</h1>
+            <div class="social">
+             <a href="">
+               <img src="img/social/facebook.png">
+             </a>
+              <a href="">
+               <img src="img/social/twitter.png">
+             </a>
+             <a href="">
+               <img src="img/social/pinterest.png">
+              </a>
+             <a href="">
+               <img src="img/social/instagram.png">
+              </a>
+            </div>
+            <p>Every moment, big or small, in infinitely precious and deserves to be captured. Because photos are memories - and what could be better than memories?</p>
+         </div>
+       </div><br><br><br>
+       <h5 class="title-txt">I'm really good at:<hr></h5>
+       <div class="list">
+        <div class="list-item">
+            <h2>Photography</h2>
+            <div class="progress-bar">
+                <div class="progress-val" id="progress-photography" data-max="95">0%</div>
+            </div>
+        </div>
+        <div class="list-item">
+            <h2>Photoshop</h2>
+            <div class="progress-bar">
+                <div class="progress-val" id="progress-photoshop" data-max="90">0%</div>
+            </div>
+        </div>
+        <div class="list-item">
+            <h2>Design</h2>
+            <div class="progress-bar">
+                <div class="progress-val" id="progress-design" data-max="75">0%</div>
+            </div>
+        </div>
+    </div>
+
+       <div class="list-two">
+        <div class="list-item">
+            <h6 id="partners">14+</h6>
+            <h4>Partners</h4>
+        </div>
+        <div class="list-item">
+            <h6 id="projects">204+</h6>
+            <h4>Projects Done</h4>
+        </div>
+        <div class="list-item">
+            <h6 id="clients">104+</h6>
+            <h4>Happy Clients</h4>
+        </div>
+        <div class="list-item">
+            <h6 id="photos">1364+</h6>
+            <h4>Photos</h4>
+        </div>
+    </div>
+    
+    </section>
+    <div class="some-margin"></div>
+    <footer class="main-footer">
+      <h4>codingWithZach&copy;2024</h4>
+    </footer>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        function animateProgressBar(id, start, end, duration) {
+            const element = document.getElementById(id);
+            const range = end - start;
+            const minTimer = 50;
+            const stepTime = Math.abs(Math.floor(duration / range));
+
+            const realStepTime = Math.max(stepTime, minTimer);
+
+            let startTime = new Date().getTime();
+            let endTime = startTime + duration;
+            let timer;
+
+            function run() {
+                const now = new Date().getTime();
+                const remaining = Math.max((endTime - now) / duration, 0);
+                const value = Math.round(end - (remaining * range));
+                element.style.width = value + '%';
+                element.innerHTML = value + '%';
+                if (value == end) {
+                    clearInterval(timer);
+                }
+            }
+
+            timer = setInterval(run, realStepTime);
+            run();
+        }
+
+        // Get all progress values
+        const progressElements = document.querySelectorAll('.progress-val');
+        progressElements.forEach(element => {
+            const max = parseInt(element.getAttribute('data-max'), 10);
+            animateProgressBar(element.id, 0, max, 5000);
+        });
+    });
+</script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        function animateValue(id, start, end, duration) {
+            const obj = document.getElementById(id);
+            const range = end - start;
+            const minTimer = 50;
+            const stepTime = Math.abs(Math.floor(duration / range));
+          
+            // Ensures the step time is at least minTimer ms
+            const realStepTime = Math.max(stepTime, minTimer);
+          
+            let startTime = new Date().getTime();
+            let endTime = startTime + duration;
+            let timer;
+          
+            function run() {
+                const now = new Date().getTime();
+                const remaining = Math.max((endTime - now) / duration, 0);
+                const value = Math.round(end - (remaining * range));
+                obj.innerHTML = value + '+';
+                if (value == end) {
+                    clearInterval(timer);
+                }
+            }
+          
+            timer = setInterval(run, realStepTime);
+            run();
+        }
+      
+        // Animate the values
+        animateValue("partners", 0, 14, 2000);
+        animateValue("projects", 0, 204, 2000);
+        animateValue("clients", 0, 104, 2000);
+        animateValue("photos", 0, 1364, 2000);
+    });
+    </script>
+    
+  <script src="js/jquery.min.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
